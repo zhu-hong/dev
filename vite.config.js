@@ -5,6 +5,7 @@ export default {
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        carousel: resolve(__dirname, 'carousel/index.html'),
       }
     }
   }

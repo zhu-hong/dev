@@ -1,4 +1,10 @@
-const cases = [];
+const cases = [
+  {
+    title: '轮播图',
+    tip: 'Proxy API',
+    url: '/carousel/',
+  },
+];
 
 const frag = document.createDocumentFragment();
 
