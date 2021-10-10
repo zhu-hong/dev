@@ -6,6 +6,7 @@ export default {
       input: {
         main: resolve(__dirname, 'index.html'),
         carousel: resolve(__dirname, 'carousel/index.html'),
+        multiLevelLinkage: resolve(__dirname, 'multi-level-linkage/index.html'),
       }
     }
   }
