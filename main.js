@@ -9,6 +9,11 @@ const cases = [
     tip: 'Proxy API',
     url: '/multi-level-linkage/',
   },
+  {
+    title: 'MVVM',
+    tip: '数据双向绑定',
+    url: '/MVVM/',
+  },
 ];
 
 const frag = document.createDocumentFragment();
