@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSONP</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    (() => {
+      const url = 'https://api.cntv.cn/olympic/getOlyMedals?serviceId=pcocean&itemcode=GEN-------------------------------&t=jsonp&cb=banomedals';
+
+      // fetch(url).then(res => {
+      //   console.log(res.text());
+      // })
+
+      const script = document.createElement('script');
+      script.src = url;
+      document.body.append(script);
+
+      function banomedals(data){
+        const medalsList = data.data.medalsList;
+        const frag = document.createDocumentFragment();
+        medalsList.forEach(item => {
+          const panel = document.createElement('div');
+          panel.textContent = `国家:${item.countryname}----奖牌数:${item.count}`;
+          frag.append(panel);
+        })
+        document.querySelector('#app').append(frag);
+      }
+
+      window.banomedals = banomedals;
+    })();
+  </script>
+</body>
+
+</html>

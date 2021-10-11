@@ -8,6 +8,7 @@ export default {
         carousel: resolve(__dirname, 'carousel/index.html'),
         multiLevelLinkage: resolve(__dirname, 'multi-level-linkage/index.html'),
         MVVM: resolve(__dirname, 'MVVM/index.html'),
+        JSONP: resolve(__dirname, 'JSONP/index.html'),
       }
     }
   },

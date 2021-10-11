@@ -14,6 +14,11 @@ const cases = [
     tip: '数据双向绑定',
     url: '/MVVM/',
   },
+  {
+    title: 'JSONP',
+    tip: '跨域问题',
+    url: '/JSONP/',
+  },
 ];
 
 const frag = document.createDocumentFragment();
