@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 
 export default {
-   build: {
+  build: {
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -10,5 +10,8 @@ export default {
         MVVM: resolve(__dirname, 'MVVM/index.html'),
       }
     }
-  }
+  },
+  server: {
+    open: true,
+  },
 }
