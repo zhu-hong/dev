@@ -1,34 +1,34 @@
-const cases = [
+const examples = [
   {
     title: '轮播图',
     tip: 'Proxy API',
-    url: '/carousel/',
+    url: '/example/carousel/',
   },
   {
     title: '省市区联动',
     tip: 'Proxy API',
-    url: '/multi-level-linkage/',
+    url: '/example/multi-level-linkage/',
   },
   {
     title: 'MVVM',
     tip: '数据双向绑定',
-    url: '/MVVM/',
+    url: '/example/MVVM/',
   },
   {
     title: 'JSONP',
     tip: '跨域问题',
-    url: '/JSONP/',
+    url: '/example/JSONP/',
   },
   {
     title: 'debounce-throttle',
     tip: '防抖与节流',
-    url: '/debounce-throttle/',
+    url: '/example/debounce-throttle/',
   },
 ];
 
 const frag = document.createDocumentFragment();
 
-cases.forEach(item => {
+examples.forEach(item => {
   const a = document.createElement('a');
   a.textContent = `${item.title}(${item.tip})`;
   a.href = item.url;
