@@ -36,4 +36,4 @@ cases.forEach(item => {
   frag.append(document.createElement('hr'));
 })
 
-document.body.append(frag);
+document.querySelector('#app').append(frag);
