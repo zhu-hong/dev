@@ -9,6 +9,7 @@ export default {
         multiLevelLinkage: resolve(__dirname, 'multi-level-linkage/index.html'),
         MVVM: resolve(__dirname, 'MVVM/index.html'),
         JSONP: resolve(__dirname, 'JSONP/index.html'),
+        debounceThrottle: resolve(__dirname, 'debounce-throttle/index.html'),
       }
     }
   },

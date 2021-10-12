@@ -19,6 +19,11 @@ const cases = [
     tip: '跨域问题',
     url: '/JSONP/',
   },
+  {
+    title: 'debounce-throttle',
+    tip: '防抖与节流',
+    url: '/debounce-throttle/',
+  },
 ];
 
 const frag = document.createDocumentFragment();
