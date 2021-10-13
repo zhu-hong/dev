@@ -9,28 +9,44 @@
 </head>
 
 <body>
+  点击按钮发起请求,打开开发者工具查看
+  <a href="https://api.cntv.cn/olympic/getOlyMedals?serviceId=pcocean&itemcode=GEN-------------------------------&t=jsonp&cb=banomedals">
+    东奥会奖牌数据
+  </a>
+  <hr>
+  <button id="fetch">Fetch</button>
+  <button id="jsonp">JSONP</button>
   <div id="app"></div>
   <script>
     (() => {
       const url = 'https://api.cntv.cn/olympic/getOlyMedals?serviceId=pcocean&itemcode=GEN-------------------------------&t=jsonp&cb=banomedals';
+      let jsonped = false;
 
-      // fetch(url).then(res => {
-      //   console.log(res.text());
-      // })
+      document.querySelector('#fetch').addEventListener('click', () => {
+        fetch(url)
+          .then((res) => {
+            console.log(res.text());
+          })
+          .catch(err => {
+            alert(err);
+          })
+      })
 
-      const script = document.createElement('script');
-      script.src = url;
-      document.body.append(script);
+      document.querySelector('#jsonp').addEventListener('click', () => {
+        if (!jsonped) {
+          jsonp(url);
+          jsonped = true;
+        }
+      })
 
-      function banomedals(data){
-        const medalsList = data.data.medalsList;
-        const frag = document.createDocumentFragment();
-        medalsList.forEach(item => {
-          const panel = document.createElement('div');
-          panel.textContent = `国家:${item.countryname}----奖牌数:${item.count}`;
-          frag.append(panel);
-        })
-        document.querySelector('#app').append(frag);
+      function jsonp(url) {
+        const script = document.createElement('script');
+        script.src = url;
+        document.body.append(script);
+      }
+
+      function banomedals(data) {
+        console.log(data);
       }
 
       window.banomedals = banomedals;
