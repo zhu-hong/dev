@@ -1,7 +1,8 @@
 import data from './data'
 
 class SSQ {
-  constructor (ps, cs, ds) {
+  constructor (data, ps, cs, ds) {
+    this.data = data;
     this.provinceSelect = document.querySelector(ps);
     this.citySelect = document.querySelector(cs);
     this.districtSelect = document.querySelector(ds);
@@ -68,7 +69,7 @@ class SSQ {
   getCurrentCitys () {
     let citys;
 
-    data.forEach(({ city }, index) => {
+    this.data.forEach(({ city }, index) => {
       if (index === this.current.provinceIdx) {
         citys = city;
         return;
@@ -95,7 +96,7 @@ class SSQ {
   loadProvinceOption () {
     let provinceFrag = document.createDocumentFragment();
 
-    data.forEach(({ province }, index) => {
+    this.data.forEach(({ province }, index) => {
       let provinceOption = index === this.current.provinceIdx ? new Option(province, province, true, true) : new Option(province, province);
       provinceFrag.append(provinceOption);
     });
@@ -140,4 +141,4 @@ class SSQ {
   }
 }
 
-new SSQ('#province', '#city', '#district');
+new SSQ(data, '#province', '#city', '#district');
