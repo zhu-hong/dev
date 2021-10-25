@@ -29,7 +29,8 @@ const CO = [
 ]
 
 class Carousel {
-  constructor() {
+  constructor(data) {
+    this.data = data;
     this.init();
   };
 
@@ -60,7 +61,7 @@ class Carousel {
     slideBox.style.transform = `translateX(-${index * slideBox.offsetWidth}px)`;
     slidePoints.querySelector('.current').classList.remove('current');
     slidePoints.childNodes[index].classList.add('current');
-    slideTitle.textContent = CO[index].title;
+    slideTitle.textContent = this.data[index].title;
   }
 
   loadEl() {
@@ -97,11 +98,11 @@ class Carousel {
     slider.append(slideCtx);
     root.append(slider);
 
-    CO.forEach((item, index) => {
+    this.data.forEach((item, index) => {
       const slidePoint = document.createElement('div');
       slidePoint.classList = 'slide-point';
 
-      index === __this.current.index && (slideTitle.textContent = CO[index].title, slidePoint.classList.add('current'));
+      index === __this.current.index && (slideTitle.textContent = this.data[index].title, slidePoint.classList.add('current'));
 
       const img = document.createElement('img');
       img.src = item.url;
@@ -150,4 +151,4 @@ class Carousel {
   };
 }
 
-new Carousel();
+new Carousel(CO);
