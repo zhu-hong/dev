@@ -6,7 +6,7 @@ const examples = [
   },
   {
     title: '省市区联动',
-    tip: 'Proxy API',
+    tip: 'Class',
     url: '/example/multi-level-linkage/',
   },
   {
