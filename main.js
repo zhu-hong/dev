@@ -24,6 +24,11 @@ const examples = [
     tip: '防抖与节流',
     url: '/example/debounce-throttle/',
   },
+  {
+    title: 'file',
+    tip: '文件操作',
+    url: '/example/file/',
+  },
 ];
 
 const frag = document.createDocumentFragment();
