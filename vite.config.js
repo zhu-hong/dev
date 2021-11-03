@@ -13,6 +13,7 @@ export default {
         resume: resolve(__dirname, 'example/resume/index.html'),
         file: resolve(__dirname, 'example/file/index.html'),
         tab: resolve(__dirname, 'example/tab/index.html'),
+        rewrite: resolve(__dirname, 'rewrite/index.html'),
       }
     }
   },

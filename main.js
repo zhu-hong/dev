@@ -34,6 +34,11 @@ const examples = [
     tip: 'TS/观察者模式',
     url: '/example/tab/',
   },
+  {
+    title: 'rewrite',
+    tip: '原生方法重写',
+    url: '/rewrite/',
+  },
 ];
 
 const frag = document.createDocumentFragment();
