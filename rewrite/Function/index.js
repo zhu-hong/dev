@@ -1,0 +1,70 @@
+Function.prototype.callRw = function (ctx) {
+
+  ctx = ctx ? Object(ctx) : window;
+
+  /**
+   * this为callRw的调用函数
+   * 将this赋给ctx下的一个方法
+   * 让ctx调用该方法
+   * 那么该方法的this指向就变成了ctx
+   * 因为谁调用该函数,该函数的this就指向谁,箭头函数除外
+   **/
+  ctx.originFunc = this;
+
+  var args = [];
+
+  /**
+   * 不能将参数数组直接放入函数执行
+   * call的参数是平铺的
+   * 使用使用字符串拼接,使用eval执行
+   **/
+  for (var i = 1; i < arguments.length; i++) {
+    args.push('arguments[' + i + ']');
+  }
+
+  var res = eval('ctx.originFunc(' + args + ')');
+  delete ctx.originFunc;
+
+  return res;
+}
+
+Function.prototype.applyRw = function (ctx, args) {
+
+  ctx = ctx ? Object(ctx) : window;
+  ctx.originFunc = this;
+
+  if (typeof args !== 'object' && typeof args !== 'function') {
+    throw new TypeError('CreateListFromArrayLike called on non-object');
+  }
+
+  if (!args || typeOf(args) !== 'Array') {
+    var res = ctx.originFunc();
+    delete ctx.originFunc;
+    return res;
+  }
+
+  var _args = [];
+
+  for (var i = 0; i < args.length; i++) {
+    _args.push('args[' + i + ']');
+  }
+
+  var res = eval('ctx.originFunc(' + _args + ')');
+  delete ctx.originFunc;
+
+  return res;
+}
+
+function typeOf(value) {
+  if (value === null) {
+    return 'null';
+  }
+
+  return typeof value === 'object' ? {
+    '[object Object]': 'Object',
+    '[object Array]': 'Array',
+    '[object Number]': 'Number',
+    '[object String]': 'String',
+    '[object Boolean]': 'Boolean',
+  }[Object.prototype.toString.callRw(value)] : typeof value;
+}
