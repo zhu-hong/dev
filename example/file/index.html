@@ -47,6 +47,7 @@
       display: grid;
       grid-template-columns: repeat(10, 200px);
     }
+
     .avatar-wrapper img {
       width: 100%;
       object-fit: cover;
@@ -79,6 +80,21 @@
           document.querySelector('.avatar-wrapper').append(img)
         })
       })
+
+      document.querySelector('.avatar').addEventListener('dragover', (e) => { e.preventDefault() }, false)
+      document.querySelector('.avatar').addEventListener('drop', (e) => {
+        e.preventDefault()
+        const file = e.dataTransfer.files[0]
+        const fileReader = new FileReader()
+        fileReader.readAsDataURL(file)
+
+        fileReader.addEventListener('load', (e) => {
+          doc.querySelector('img').setAttribute('src', e.target.result)
+          const img = new Image()
+          img.setAttribute('src', e.target.result)
+          document.querySelector('.avatar-wrapper').append(img)
+        })
+      }, false)
     })(document)
   </script>
 </body>
