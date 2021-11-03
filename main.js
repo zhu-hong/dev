@@ -29,6 +29,11 @@ const examples = [
     tip: '文件操作',
     url: '/example/file/',
   },
+  {
+    title: 'tab',
+    tip: 'TS/观察者模式',
+    url: '/example/tab/',
+  },
 ];
 
 const frag = document.createDocumentFragment();
