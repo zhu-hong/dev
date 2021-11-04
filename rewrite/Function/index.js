@@ -68,3 +68,20 @@ function typeOf(value) {
     '[object Boolean]': 'Boolean',
   }[Object.prototype.toString.callRw(value)] : typeof value;
 }
+
+Function.prototype.bindRw = function (ctx) {
+  var originFunc = this;
+  var args = Array.prototype.slice.callRw(arguments, 1);
+  var tempFunc = function () { };
+
+  var newFunc = function () {
+    var newArgs = Array.prototype.slice.callRw(arguments);
+    return originFunc.applyRw(this instanceof newFunc ? this : ctx, args.concat(newArgs));
+  }
+
+  // 圣杯模式
+  tempFunc.prototype = this.prototype;
+  newFunc.prototype = new tempFunc();
+
+  return newFunc;
+}
