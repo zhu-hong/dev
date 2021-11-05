@@ -85,3 +85,13 @@ Function.prototype.bindRw = function (ctx) {
 
   return newFunc;
 }
+
+function newRw() {
+  var constructor = Array.prototype.shift.call(arguments);
+  var _this = {};
+
+  _this.__proto__ = constructor.prototype;
+  var res = constructor.apply(_this, arguments);
+
+  return typeOf(res) === 'Object' ? res : _this;
+}
