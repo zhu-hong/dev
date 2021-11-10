@@ -9,7 +9,6 @@
 </head>
 
 <body>
-  点击按钮发起请求,打开开发者工具查看
   <a href="https://api.cntv.cn/olympic/getOlyMedals?serviceId=pcocean&itemcode=GEN-------------------------------&t=jsonp&cb=banomedals">
     东奥会奖牌数据
   </a>
@@ -46,7 +45,7 @@
       }
 
       function banomedals(data) {
-        console.log(data);
+        alert(JSON.stringify(data, null, 2));
       }
 
       window.banomedals = banomedals;
