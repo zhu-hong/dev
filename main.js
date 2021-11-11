@@ -39,6 +39,11 @@ const examples = [
     tip: '原生方法重写',
     url: '/rewrite/',
   },
+  {
+    title: 'tree-data',
+    tip: '树形数据结构化',
+    url: '/example/tree-data/',
+  },
 ];
 
 const frag = document.createDocumentFragment();
