@@ -44,6 +44,11 @@ const examples = [
     tip: '树形数据结构化',
     url: '/example/tree-data/',
   },
+  {
+    title: 'vue-mini',
+    tip: 'data,computed,watch原理',
+    url: '/vue-mini/',
+  },
 ];
 
 const frag = document.createDocumentFragment();

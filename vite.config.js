@@ -15,6 +15,7 @@ export default {
         tab: resolve(__dirname, 'example/tab/index.html'),
         rewrite: resolve(__dirname, 'rewrite/index.html'),
         treeData: resolve(__dirname, 'example/tree-data/index.html'),
+        vueMini: resolve(__dirname, 'vue-mini/index.html'),
       }
     }
   },
