@@ -50,3 +50,17 @@ Object.deepFreeze = function (origin) {
 
   return Object.freeze(origin)
 }
+
+Object.deepSeal = function (o) {
+  var _keys = Object.getOwnPropertyNames(o)
+
+  _keys.forEach(function (k) {
+    var _v = o[k]
+
+    if (typeof _v === 'object' && _v !== null) {
+      Object.deepSeal(_v)
+    }
+  })
+
+  return Object.seal(o)
+}
